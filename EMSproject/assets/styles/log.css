@@ -1,0 +1,69 @@
+.login {
+    overflow: hidden;
+    background-color: #ADD8E6;
+    padding: 20px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    box-shadow: 5px 10px 10px #d0c1b3;
+}
+
+body {
+    margin-top: 200px;
+}
+
+.login>input {
+    font-family: "Asap", sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 1;
+    padding: 10px 10px;
+    margin: 15px -10px;
+}
+
+.button {
+    font-family: "Asap", sans-serif;
+    cursor: pointer;
+    color: black;
+    background-color: #ffe8d6;
+    font-size: 16px;
+    width: 320px;
+    padding: 10px 0;
+    margin-top: 5px;
+    margin-left: -5px;
+    margin-right: 25px;
+    border-radius: 20px;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+.col2 {
+    box-shadow: 5px 10px 10px #d0c1b3;
+    border-radius: 10px;
+}
+
+.font {
+    color: brown;
+    font-size: larger;
+}
+
+button::after {
+    background-color: peru;
+}
+
+a:link {
+    text-decoration: None;
+    color: black;
+}
+
+.link {
+    font-size: larger;
+    color: brown;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
