@@ -11,3 +11,4 @@ class Employee(models.Model):
     img=models.ImageField(upload_to='pics',default='None',null=True)
     salary=models.IntegerField(default=0,null=True)
     leaves=models.IntegerField(default=0,null=True)
+    isadmin=models.BooleanField(default=False,null=True)

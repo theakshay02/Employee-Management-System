@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="{%static 'styles/admin.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
         <header>
             <div>
                 <span class=""></span>
-                <h3>Welcome,{{}} to Employee Management System</h3>
+                <h3>Welcome,{{details.0.name}} to Employee Management System</h3>
             </div>
             <div class="social-icons">
                 <span class="ti-bell"></span>
@@ -45,7 +45,7 @@
         <main>
             <h1 class="dash-title">Overview</h1>
             
-            <img src="1.jpg">
+            <img src={{details.0.img.url}}>
             
             <br> <br>
             <div class="dash-cards">
@@ -57,32 +57,32 @@
                             <ul>
                                 
                                 <h5>Id: </h5>
-                                <h5>{{}}</h5>
+                                <h5>{{details.0.empid}}</h5>
                                 </li>
 
                                 <li>
                                 <h5>Role: </h5>
-                                <h5>{{}}</h5>
+                                <h5>{{details.0.role}}</h5>
                                 </li>
 
                                 <li>
                                 <h5>Phone Number: </h5>
-                                <h5>{{}}</h5>
+                                <h5>{{details.0.phone}}</h5>
                                 </li>
 
                                 <li>
                                 <h5>Email: </h5>
-                                <h5>{{}}</h5>
+                                <h5>{{details.0.email}}</h5>
                                 </li>
 
                                 <li>
                                 <h5>Salary: </h5>
-                                <h5>{{}}</h5>
+                                <h5>{{details.0.salary}}</h5>
                                 </li>
 
                                 <li>
                                 <h5>Leave Left: </h5>
-                                <h5>{{}}</h5>
+                                <h5>{{details.0.leaves}}</h5>
                                 </li>
                             </ul>
                         </div>

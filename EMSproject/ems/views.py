@@ -16,7 +16,13 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             details=Employee.objects.filter(empid=username)
-            return render(request,'dashboard.html',{'details':details})
+            print(details)
+            
+            if Employee.objects.values('isadmin') == 0:
+                return render(request,'dashboard.html',{'details':details})
+            else:
+                return render(request,'admin.html',{'details':details})
+
 
         else:
             messages.info(request,'Invalid Credentials!!Please try again')
