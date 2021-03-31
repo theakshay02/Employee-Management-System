@@ -142,10 +142,12 @@ main {
     margin-top:0.5cm;
     margin-left: 13rem;
     font-size: 1.1rem;
+    box-shadow: 5px 10px;
 }
 
 #resetb{
     margin-top:0.5cm;
     margin-left: 13.8rem;
     font-size: 0.8rem;
+    box-shadow: 5px 10px;
 }

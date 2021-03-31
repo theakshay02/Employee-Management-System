@@ -34,3 +34,15 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
+def add_emp(request):
+    """ empid=request.POST['empid']
+    name=request.POST['ename']
+    role=request.POST['role']
+    phno=request.POST['phno']
+    email=request.POST['email']
+    address=request.POST['address']
+    img=request.POST['img']
+    salary=request.POST['salary']
+    leaves=request.POST['leaves'] """
+    
+    return render(request,'add_emp.html')
