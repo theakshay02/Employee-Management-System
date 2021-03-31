@@ -24,8 +24,8 @@
 
         <div class="sidebar-menu">
             <ul>
-                <li><a href=""><span class="ti-home"></span><span> Home</span></a></li>
-                <li><a href=""><span class="ti-pencil-alt"></span><span> Add employee</span></a></li>
+                <li><a href="#"><span class="ti-home"></span><span> Home</span></a></li>
+                <li><a href="add_emp.html"><span class="ti-pencil-alt"></span><span> Add employee</span></a></li>
                 <li><a href=""><span class="ti-write"></span><span> Leaves</span></a></li>
                 <li><a href=""><span class="fas fa-sign-out-alt"></span><span></span> Log Out</a></li>
             </ul>
@@ -101,17 +101,21 @@
                         <th>Address</th>
                         <th>Salary</th>
                     </tr>
+                    {% for row in table %}
                     <tr>
-                        <td>EMP18GCS173</td>
-                        <td>Vyoman Jain</td>
-                        <td>Manager</td>
-                        <td>9976589034</td>
-                        <td>vyoman@gmail.com</td>
-                        <td>Noida,UP</td>
-                        <td>50000</td>
-
+                        
+                    
+                        <td>{{row.empid}}</td>
+                        <td>{{row.name}}</td>
+                        <td>{{row.role}}</td>
+                        <td>{{row.phone}}</td>
+                        <td>{{row.email}}</td>
+                        <td>{{row.address}}</td>
+                        <td>{{row.salary}}</td>
+                                    
                     </tr>
-                   
+                    
+                   {% endfor %}
                     </table>
                 
             </div>

@@ -16,12 +16,12 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             details=Employee.objects.filter(empid=username)
-            print(details)
+            table=Employee.objects.all()
             
-            if Employee.objects.values('isadmin') == 0:
+            if  details[0].isadmin == False:
                 return render(request,'dashboard.html',{'details':details})
             else:
-                return render(request,'admin.html',{'details':details})
+                return render(request,'admin.html',{'details':details,'table':table})
 
 
         else:
@@ -33,3 +33,4 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+

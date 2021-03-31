@@ -1,0 +1,151 @@
+:root {
+    --main-color: #027581;
+    --color-dark: #1D2231;
+    --text-grey: #8390A2;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: var(--main-color);
+    color: white;
+    padding: 1rem;
+
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 0.6rem;
+}
+
+.sidebar-menu {
+    padding: 1rem;
+}
+
+.sidebar li {
+    margin-bottom: 1.2rem;
+}
+
+.sidebar a {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.sidebar a span:first-child {
+    padding-left: 2rem;
+}
+
+.sidebar a span:last-child {
+    padding-left: 0.5rem;
+}
+
+.main-content {
+    position:relative;
+    margin-left: 240px;
+}
+
+header {
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: calc(100% - 240px);
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    border-bottom: 1px solid #ccc;
+}
+
+main {
+    margin-top: 60px;
+    background: rgb(231, 224, 224);
+    min-height: 90vh;
+    padding: 1rem;
+}
+
+.dash-title {
+    color: var(--color-dark);
+    margin-bottom: 3rem;
+    margin-left: 5%;
+}
+
+.dash-cards {
+    width: 50%;
+    height: 80%;
+    margin-left: 8.5cm;
+    display: grid;
+    border: 5px solid;
+    border-radius: 2%;
+    border-color: var(--main-color);
+    
+}
+
+.card-single {
+    background: #fff;
+    border-radius: 7px;
+    
+}
+
+.card-body {
+    padding: 1rem;
+    display: flex;
+    
+}
+
+
+
+.card-body span {
+    font-size: 1.5rem;
+    color: #777;
+    padding-right: 1rem;
+}
+
+.card-body h4 {
+    color: var(--color-dark);
+    font-size: 1.8rem;
+}
+
+.card-body h5 {
+    color: var(--text-grey);
+    font-size: 1rem;
+    margin-top: .4rem;
+    display:  -moz-inline-box;
+    padding: 0.1cm;
+}
+
+.card-body h5:last-child {
+    color: var(--color-dark);
+    font-size: 1.5rem;
+    margin-left: 3rem;
+}
+
+#submitb{
+    margin-top:0.5cm;
+    margin-left: 13rem;
+    font-size: 1.1rem;
+}
+
+#resetb{
+    margin-top:0.5cm;
+    margin-left: 13.8rem;
+    font-size: 0.8rem;
+}
