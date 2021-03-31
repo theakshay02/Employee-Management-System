@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 :root {
     --main-color: #027581;
     --color-dark: #1D2231;

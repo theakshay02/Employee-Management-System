@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .login {
     overflow: hidden;
     background-color: #ADD8E6;
