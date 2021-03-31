@@ -40,7 +40,7 @@ body {
 }
 
 button:hover {
-    background-color: gray;
+    background-color: rgb(70, 68, 68);
 }
 
 .col2 {
