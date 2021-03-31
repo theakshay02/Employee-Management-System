@@ -92,8 +92,8 @@ main {
     height: 50%;
     margin-left: 4cm;
     display: grid;
-    border: 5px solid;
-    border-radius: 5%;
+    border: 10px solid;
+    border-radius: 3%;
     border-color: var(--main-color);
 }
 
