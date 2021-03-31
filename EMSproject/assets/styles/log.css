@@ -54,7 +54,7 @@ button:hover {
 }
 
 button::after {
-    background-color: peru;
+    background-color: rgb(212, 142, 71);
 }
 
 a:link {
