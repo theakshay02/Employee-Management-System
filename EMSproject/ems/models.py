@@ -8,6 +8,7 @@ class Employee(models.Model):
     phone=models.CharField(max_length=10)
     email=models.CharField(max_length=50)
     address=models.TextField()
+    gender=models.CharField(max_length=15,default=None,null=True)
     img=models.ImageField(upload_to='pics',default='None',null=True)
     salary=models.IntegerField(default=0,null=True)
     leaves=models.IntegerField(default=0,null=True)

@@ -24,6 +24,7 @@
 
         <div class="sidebar-menu">
             <ul>
+                
                 <li><a href="/dashboard"><span class="ti-home"></span><span> Home</span></a></li>
                 <li><a href=""><span class="ti-pencil-alt"></span><span> Update Info</span></a></li>
                 <li><a href=""><span class="ti-write"></span><span> Leaves</span></a></li>
@@ -35,11 +36,15 @@
         <header>
             <div>
                 <span class=""></span>
-                <h3></h3>
+                <h1 class="dash-title">Add Employee</h1>
             </div>
         </header>
         <main>
-            <h1 class="dash-title">Add Employee</h1>
+            <div >
+                        {% for message in messages %}
+                            <h2 style="color:green; text-align:center;"> {{message}} </h2>
+                        {% endfor %}
+            </div>
             
             <div class="dash-cards">
                 <div class="card-single">
@@ -73,6 +78,15 @@
                                 <li>
                                 <h5>Role: </h5>
                                 <h5><input type="text" id="role" name="role"></h5>
+                                </li>
+
+                                <h5>IsAdmin: </h5>
+                                <h5> <select name="admin" id="admin">
+                                        <option value="True">Male</option>
+                                        <option value="False">Female</option>
+                                        
+                                    </select>
+                                </h5>
                                 </li>
 
                                 <li>

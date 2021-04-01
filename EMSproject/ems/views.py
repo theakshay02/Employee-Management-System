@@ -31,19 +31,29 @@ def login(request):
             messages.info(request,'Invalid credentials are entered, please try again!')
             return redirect('/')
     else:
-        return render(request,'log.html')
+        if request.user.is_authenticated:
+            details=Employee.objects.filter(empid=request.user.username)
+            table=Employee.objects.all()
+            
+            if  details[0].isadmin == False:
+                return render(request,'dashboard.html',{'details':details})
+            else:
+                return render(request,'admin.html',{'details':details,'table':table})
+        else:   
+            return render(request,'log.html')
 
 def logout(request):
     auth.logout(request)
     return redirect('/')
 
-<<<<<<< HEAD
 @login_required()
 def add_emp(request):
     if request.method == 'POST' and request.FILES['image']:
         empid=request.POST['empid']
         name=request.POST['ename']
         role=request.POST['role']
+        isadmin=request.POST['admin']
+        gender=request.POST['gender']
         phno=request.POST['phno']
         email=request.POST['email']
         address=request.POST['address']
@@ -51,14 +61,20 @@ def add_emp(request):
         leaves=request.POST['leaves']
         img=request.FILES['image']
         
-        
-        emp=Employee(empid=empid,name=name,role=role,phone=phno,email=email,
-                    address=address,img=img,salary=salary,leaves=leaves)
-        emp.save()
-        """ user=User(username=empid,password="root#123@")
-        user.save() """
+        if User.objects.filter(username=empid).exists() == False:
+            
+            emp=Employee(empid=empid,name=name,role=role,phone=phno,email=email,
+                        gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)
+            emp.save()
+            
+            user = User.objects.create_user(username=empid,password='root#123@')
+            user.save()
+            messages.info(request,'Employee added successfully :) ')
+            return redirect('/add_emp')
+        else:
+            messages.info(request,'Employee already exist :) ')
+            return redirect('/add_emp')
 
-        return render(request,'add_emp.html')
     else:
         return render(request,'add_emp.html')
 
@@ -66,17 +82,3 @@ def add_emp(request):
         
      
    
-=======
-def add_emp(request):
-    """ empid=request.POST['empid']
-    name=request.POST['ename']
-    role=request.POST['role']
-    phno=request.POST['phno']
-    email=request.POST['email']
-    address=request.POST['address']
-    img=request.POST['img']
-    salary=request.POST['salary']
-    leaves=request.POST['leaves'] """
-    
-    return render(request,'add_emp.html')
->>>>>>> 13a73185d6c85463dc26fbf5ffa99fc525580cae
