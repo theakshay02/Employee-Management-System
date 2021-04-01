@@ -141,11 +141,31 @@ main {
 #submitb{
     margin-top:0.5cm;
     margin-left: 13rem;
+    padding: 5px;
     font-size: 1.1rem;
+    color:white;
+    z-index: 100;
+    border: 1.8px solid;
+    border-color: black;
+    background-color: #027581;
+}
+
+#submitb:hover{
+    transform: scale(1.05);
 }
 
 #resetb{
     margin-top:0.5cm;
-    margin-left: 13.8rem;
-    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    z-index: 100;
+    padding: 6px;
+    font-size: 1.1rem;
+    color:white;
+    border: 1.8px solid;
+    border-color: black;
+    background-color: #027581;
+}
+
+#resetb:hover{
+    transform: scale(1.05);
 }

@@ -28,7 +28,7 @@ def login(request):
 
 
         else:
-            messages.info(request,'Invalid Credentials!!Please try again')
+            messages.info(request,'Invalid credentials are entered, please try again!')
             return redirect('/')
     else:
         return render(request,'log.html')
@@ -37,6 +37,7 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
+<<<<<<< HEAD
 @login_required()
 def add_emp(request):
     if request.method == 'POST' and request.FILES['image']:
@@ -65,3 +66,17 @@ def add_emp(request):
         
      
    
+=======
+def add_emp(request):
+    """ empid=request.POST['empid']
+    name=request.POST['ename']
+    role=request.POST['role']
+    phno=request.POST['phno']
+    email=request.POST['email']
+    address=request.POST['address']
+    img=request.POST['img']
+    salary=request.POST['salary']
+    leaves=request.POST['leaves'] """
+    
+    return render(request,'add_emp.html')
+>>>>>>> 13a73185d6c85463dc26fbf5ffa99fc525580cae

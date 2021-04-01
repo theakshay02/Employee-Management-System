@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 :root {
     --main-color: #027581;
     --color-dark: #1D2231;
@@ -93,8 +97,8 @@ main {
     height: 50%;
     margin-left: 7.5cm;
     display: grid;
-    border: 5px solid;
-    border-radius: 5%;
+    border: 10px solid;
+    border-radius: 3%;
     border-color: var(--main-color);
 }
 
