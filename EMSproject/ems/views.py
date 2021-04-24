@@ -40,7 +40,7 @@ def login(request):
             else:
                 return render(request,'admin.html',{'details':details,'table':table})
         else:   
-            return render(request,'log.html')
+            return redirect('/')
 
 def logout(request):
     auth.logout(request)
@@ -78,6 +78,25 @@ def add_emp(request):
     else:
         return render(request,'add_emp.html')
 
+def edit(request, empid):  
+    employee = Employee.objects.get(empid=empid)  
+    return render(request,'edit.html', {'employee':employee})  
+
+def update(request, empid):  
+    employee = Employee.objects.get(empid=empid)   
+    return render(request, 'edit.html', {'employee': employee})  
+
+
+'''def edit(request, empid):
+    cur.execute("select * from 'empmanagement' where 'empid' = {}".format(empid)) 
+    employee = cur.fetchone() 
+    return render(request,'edit.html', {'employee':employee})  
+
+def update(request, empid):  
+    cur.execute("select * from 'empmanagement' where 'empid' = {}".format(empid)) 
+    employee = cur.fetchone() 
+    return render(request, 'edit.html', {'employee': employee})  '''
+    
      
         
      

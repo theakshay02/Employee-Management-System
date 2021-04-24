@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Employee</title>
+    <title>Update Employee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="{%static 'styles/addemp.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
@@ -36,7 +36,7 @@
         <header>
             <div>
                 <span class=""></span>
-                <h1 class="dash-title">Add Employee</h1>
+                <h1 class="dash-title">Update Employee</h1>
             </div>
         </header>
         <main>
@@ -51,23 +51,23 @@
                     <div class="card-body">
                         <span class="ti-briefcase"></span>
 
-                        <form method="POST" enctype="multipart/form-data">
+                        <form method="POST" enctype="multipart/form-data action="/update/{{employee.empid}}">
                             {% csrf_token %}
                             <h4>Input Details: </h4><br>
                             <ul>
                                 <li>
                                 <h5>Employee Id:  </h5>
-                                <h5><input type="text" id="empid" name="empid"></h5>
+                                <h5><input type="text" id="empid" name="empid" value="{{ employee.empid }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Name: </h5>
-                                <h5><input type="text" id="ename" name="ename"></h5>
+                                <h5><input type="text" id="ename" name="ename" value="{{ employee.ename }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Gender: </h5>
-                                <h5> <select name="gender" id="gender">
+                                <h5> <select name="gender" id="gender" value="{{ employee.gender}}">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
@@ -77,11 +77,11 @@
 
                                 <li>
                                 <h5>Role: </h5>
-                                <h5><input type="text" id="role" name="role"></h5>
+                                <h5><input type="text" id="role" name="role" value="{{ employee.role }}"></h5>
                                 </li>
 
                                 <h5>IsAdmin: </h5>
-                                <h5> <select name="admin" id="admin">
+                                <h5> <select name="admin" id="admin" value="{{ employee.admin }}">
                                         <option value="True">True</option>
                                         <option value="False">False</option>
                                         
@@ -91,32 +91,32 @@
 
                                 <li>
                                 <h5>Phone Number: </h5>
-                                <h5><input type="number" id="phno" name="phno"></h5>
+                                <h5><input type="number" id="phno" name="phno" value="{{ employee.phno }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Email: </h5>
-                                <h5><input type="email" id="email" name="email"></h5>
+                                <h5><input type="email" id="email" name="email" value="{{ employee.value }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Address:</h5>
-                                <h5><textarea rows="4" cols="50" id="address" name="address"></textarea></h5>
+                                <h5><textarea rows="4" cols="50" id="address" name="address" value="{{ employee.address }}"></textarea></h5>
                                 </li>
 
                                 <li>
                                 <h5>Image: </h5>
-                                <h5><input type="file" id="img" name="image" ></h5>
+                                <h5><input type="file" id="img" name="image" value="{{ employee.image }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Salary: </h5>
-                                <h5><input type="text" id="salary" name="salary"></h5>
+                                <h5><input type="text" id="salary" name="salary" value="{{ employee.salary }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Leave Left: </h5>
-                                <h5><input type="text" id="leaves" name="leaves"></h5>
+                                <h5><input type="text" id="leaves" name="leaves" value="{{ employee.leaves }}"></h5>
                                 </li>
 
                                 <input type="submit" id="submitb"><br>
