@@ -78,13 +78,35 @@ def add_emp(request):
     else:
         return render(request,'add_emp.html')
 
-def edit(request, empid):  
+'''def edit(request, empid):  
     employee = Employee.objects.get(empid=empid)  
-    return render(request,'edit.html', {'employee':employee})  
+    return render(request,'edit.html', {'employee':employee}) ''' 
 
 def update(request, empid):  
-    employee = Employee.objects.get(empid=empid)   
-    return render(request, 'edit.html', {'employee': employee})  
+    if request.method == 'POST' and request.FILES['image']:
+        employee = Employee.objects.get(empid=empid)   
+        
+        empid=request.POST['empid']
+        name=request.POST['ename']
+        role=request.POST['role']
+        isadmin=request.POST['admin']
+        gender=request.POST['gender']
+        phno=request.POST['phno']
+        email=request.POST['email']
+        address=request.POST['address']
+        salary=request.POST['salary']
+        leaves=request.POST['leaves']
+        img=request.FILES['image']
+                            
+        Employee.objects.filter(empid=empid).update(empid=empid,name=name,role=role,phone=phno,email=email,
+                            gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)   
+        employee.refresh_from_db()
+        messages.info(request,'Employee Updated Successfully ')
+        return render(request, 'edit.html', {'employee': employee})
+        
+    else:
+        employee = Employee.objects.get(empid=empid)  
+        return render(request,'edit.html', {'employee':employee})
 
 
         
