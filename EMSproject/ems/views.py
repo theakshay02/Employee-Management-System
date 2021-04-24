@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+import os
 from .models import Employee
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
@@ -78,12 +79,10 @@ def add_emp(request):
     else:
         return render(request,'add_emp.html')
 
-'''def edit(request, empid):  
-    employee = Employee.objects.get(empid=empid)  
-    return render(request,'edit.html', {'employee':employee}) ''' 
 
 def update(request, empid):  
     if request.method == 'POST' and request.FILES['image']:
+        
         employee = Employee.objects.get(empid=empid)   
         
         empid=request.POST['empid']
@@ -97,6 +96,12 @@ def update(request, empid):
         salary=request.POST['salary']
         leaves=request.POST['leaves']
         img=request.FILES['image']
+
+        emp = Employee.objects.get(empid=empid)
+        initial_path = str(emp.img)
+        new_path = str(settings.MEDIA_ROOT) + '\\pics\\' + str(img)
+        os.rename(initial_path, new_path)
+        
                             
         Employee.objects.filter(empid=empid).update(empid=empid,name=name,role=role,phone=phno,email=email,
                             gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)   
