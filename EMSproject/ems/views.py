@@ -87,17 +87,6 @@ def update(request, empid):
     return render(request, 'edit.html', {'employee': employee})  
 
 
-'''def edit(request, empid):
-    cur.execute("select * from 'empmanagement' where 'empid' = {}".format(empid)) 
-    employee = cur.fetchone() 
-    return render(request,'edit.html', {'employee':employee})  
-
-def update(request, empid):  
-    cur.execute("select * from 'empmanagement' where 'empid' = {}".format(empid)) 
-    employee = cur.fetchone() 
-    return render(request, 'edit.html', {'employee': employee})  '''
-    
-     
         
      
    

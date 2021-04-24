@@ -90,6 +90,7 @@
                 <h1 style=" color:rgb(255, 250, 250);background-color:#027581;opacity:0.7;"><span style="margin-left:10px;"class="ti-user"> Employee Details</h1>
                     <table>
                     <tr>
+                        <th>Image</th>
                         <th>Empid</th>
                         <th>Name</th>
                         <th>Role</th>
@@ -102,7 +103,7 @@
                     {% for row in table %}
                         <tr>
                         
-                    
+                            <td class ="colimg1"><img src={{row.img.url}}></td>
                             <td>{{row.empid}}</td>
                             <td>{{row.name}}</td>
                             <td>{{row.role}}</td>
@@ -111,8 +112,8 @@
                             <td>{{row.address}}</td>
                             <td>{{row.salary}}</td>
                             <td>
-                                <a href="/edit">Edit</a>  
-                                <a href="/delete">Delete</a>  
+                                <a href="/edit/{{row.empid}}">Edit</a>  
+                                <a href="/delete/{{row.empid}}">Delete</a>  
                             </td>
                                     
                         </tr>

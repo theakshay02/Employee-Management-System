@@ -62,7 +62,7 @@
 
                                 <li>
                                 <h5>Name: </h5>
-                                <h5><input type="text" id="ename" name="ename" value="{{ employee.ename }}"></h5>
+                                <h5><input type="text" id="ename" name="ename" value="{{ employee.name }}"></h5>
                                 </li>
 
                                 <li>
@@ -81,9 +81,9 @@
                                 </li>
 
                                 <h5>IsAdmin: </h5>
-                                <h5> <select name="admin" id="admin" value="{{ employee.admin }}">
+                                <h5> <select name="admin" id="admin">
                                         <option value="True">True</option>
-                                        <option value="False">False</option>
+                                        <option value="False" selected>False</option>
                                         
                                     </select>
                                 </h5>
@@ -91,22 +91,22 @@
 
                                 <li>
                                 <h5>Phone Number: </h5>
-                                <h5><input type="number" id="phno" name="phno" value="{{ employee.phno }}"></h5>
+                                <h5><input type="text" id="phno" name="phno" value="{{ employee.phone }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Email: </h5>
-                                <h5><input type="email" id="email" name="email" value="{{ employee.value }}"></h5>
+                                <h5><input type="email" id="email" name="email" value="{{ employee.email }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Address:</h5>
-                                <h5><textarea rows="4" cols="50" id="address" name="address" value="{{ employee.address }}"></textarea></h5>
+                                <h5><textarea rows="4" cols="50" id="address" name="address">{{ employee.address }}</textarea></h5>
                                 </li>
 
                                 <li>
                                 <h5>Image: </h5>
-                                <h5><input type="file" id="img" name="image" value="{{ employee.image }}"></h5>
+                                <h5><input type="file" id="img" name="image" value="{{ employee.img }}"></h5>
                                 </li>
 
                                 <li>
