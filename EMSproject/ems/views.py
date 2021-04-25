@@ -80,6 +80,7 @@ def add_emp(request):
         return render(request,'add_emp.html')
 
 
+
 def update(request, empid):  
     if request.method == 'POST' and request.FILES['image']:
         
@@ -114,6 +115,8 @@ def update(request, empid):
         return render(request,'edit.html', {'employee':employee})
 
 
-        
-     
+def destroy(request, empid):  
+    employee = Employee.objects.get(empid=empid)  
+    employee.delete()  
+    return redirect("/dashboard")  
    
