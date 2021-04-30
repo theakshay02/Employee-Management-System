@@ -1,13 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Update Info</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="{%static 'styles/style.css' %}">
+    <link rel="stylesheet" href="{%static 'styles/addemp.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -18,17 +17,18 @@
             <h3 class="brand">
                 <span class="ti-unlink"></span>
                 <span>Welcome  </span>
-                <span class="ti-menu-alt"></span>
+                
             </h3>
             
         </div>
 
         <div class="sidebar-menu">
             <ul>
+                
                 <li><a href="/dashboard"><span class="ti-home"></span><span> Home</span></a></li>
-                <li><a href="/update2/{{details.0.empid}}"><span class="ti-pencil-alt"></span><span> Update Info</span></a></li>
+                <li><a href=""><span class="ti-pencil-alt"></span><span> Update Info</span></a></li>
                 <li><a href=""><span class="ti-write"></span><span> Leaves</span></a></li>
-                <li><a href="/logout"><span class="fas fa-sign-out-alt"></span><span></span> Log Out</a></li>
+                <li><a href=""><span class="fas fa-sign-out-alt"></span><span></span> Log Out</a></li>
             </ul>
         </div>
     </div>
@@ -36,52 +36,44 @@
         <header>
             <div>
                 <span class=""></span>
-                <h3>Welcome  {{details.0.name}},to Employee Management System</h3>
+                <h1 class="dash-title">Update Personal Information</h1>
             </div>
         </header>
         <main>
-            <h1 class="dash-title">Overview</h1>
-            <div style="text-align:center;">
-                <img src={{details.0.img.url}}>
-            </div> <br> <br>
+            <div >
+                        {% for message in messages %}
+                            <h2 style="color:green; text-align:center;"> {{message}} </h2>
+                        {% endfor %}
+            </div>
+            
             <div class="dash-cards">
                 <div class="card-single">
                     <div class="card-body">
                         <span class="ti-briefcase"></span>
-                        <div>
-                            <h4>Personal Details</h4><br>
+
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <h4>Change Details: </h4><br>
                             <ul>
-                                <li>
-                                <h5>Id: </h5>
-                                <h5>{{details.0.empid}}</h5>
-                                </li>
-
-                                <li>
-                                <h5>Role: </h5>
-                                <h5>{{details.0.role}}</h5>
-                                </li>
-
+       
                                 <li>
                                 <h5>Phone Number: </h5>
-                                <h5>{{details.0.phone}}</h5>
+                                <h5><input type="text" id="phno" name="phno" value="{{ employee.phone }}"></h5>
                                 </li>
 
                                 <li>
                                 <h5>Email: </h5>
-                                <h5>{{details.0.email}}</h5>
+                                <h5><input type="email" id="email" name="email" value="{{ employee.email }}"></h5>
                                 </li>
 
                                 <li>
-                                <h5>Salary: </h5>
-                                <h5>{{details.0.salary}}</h5>
+                                <h5>Address:</h5>
+                                <h5><textarea rows="4" cols="50" id="address" name="address">{{ employee.address }}</textarea></h5>
                                 </li>
 
-                                <li>
-                                <h5>Leave Left: </h5>
-                                <h5>{{details.0.leaves}}</h5>
-                                </li>
+                                <input type="submit" id="submitb"><br>
                             </ul>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

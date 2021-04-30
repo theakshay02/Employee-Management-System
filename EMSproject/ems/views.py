@@ -9,7 +9,6 @@ from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 
-
 def index(request):
     return render(request,'log.html')
 
@@ -69,7 +68,7 @@ def add_emp(request):
                         gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)
             emp.save()
             
-            user = User.objects.create_user(username=empid,password='root#123@',email=email)
+            user = User.objects.create_user(username=empid,password='root#123@')
             user.save()
             messages.info(request,'Employee added successfully :) ')
             return redirect('/add_emp')
@@ -83,7 +82,7 @@ def add_emp(request):
 
 
 def update(request, empid):  
-    if request.method == 'POST' and request.FILES['image']:
+    if request.method == 'POST':
         
         employee = Employee.objects.get(empid=empid)   
         
@@ -97,16 +96,10 @@ def update(request, empid):
         address=request.POST['address']
         salary=request.POST['salary']
         leaves=request.POST['leaves']
-        img=request.FILES['image']
 
-        emp = Employee.objects.get(empid=empid)
-        initial_path = str(emp.img)
-        new_path = str(settings.MEDIA_ROOT) + '\\pics\\' + str(img)
-        os.rename(initial_path, new_path)
-        
-                            
+        emp = Employee.objects.get(empid=empid)           
         Employee.objects.filter(empid=empid).update(empid=empid,name=name,role=role,phone=phno,email=email,
-                            gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)   
+                            gender=gender,address=address,salary=salary,leaves=leaves,isadmin=isadmin)   
         employee.refresh_from_db()
         messages.info(request,'Employee Updated Successfully ')
         return render(request, 'edit.html', {'employee': employee})
@@ -115,11 +108,27 @@ def update(request, empid):
         employee = Employee.objects.get(empid=empid)  
         return render(request,'edit.html', {'employee':employee})
 
+def update2(request, empid):  
+    if request.method == 'POST':
+        
+        employee = Employee.objects.get(empid=empid)   
+        phno=request.POST['phno']
+        email=request.POST['email']
+        address=request.POST['address']
+
+        emp = Employee.objects.get(empid=empid)           
+        Employee.objects.filter(empid=empid).update(phone=phno,email=email,
+                            address=address)   
+        employee.refresh_from_db()
+        messages.info(request,'Your information is updated successfully. ')
+        return render(request, 'edit2.html', {'employee': employee})
+        
+    else:
+        employee = Employee.objects.get(empid=empid)  
+        return render(request,'edit2.html', {'employee':employee})
 
 def destroy(request, empid):  
     employee = Employee.objects.get(empid=empid)  
     employee.delete()  
     return redirect("/dashboard")  
    
-
-

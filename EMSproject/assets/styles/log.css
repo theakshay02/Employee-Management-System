@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .login {
     overflow: hidden;
     background-color: #ADD8E6;
@@ -40,7 +44,7 @@ body {
 }
 
 button:hover {
-    background-color: rgb(70, 68, 68);
+    background-color: gray;
 }
 
 .col2 {
@@ -54,16 +58,20 @@ button:hover {
 }
 
 button::after {
-    background-color: rgb(212, 142, 71);
+    background-color: peru;
 }
 
 a:link {
     text-decoration: None;
-    color: rgb(0, 0, 0);
+    color: black;
 }
 
 .link {
     font-size: larger;
     color: brown;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#rstbtn {
+    color: black;
 }
