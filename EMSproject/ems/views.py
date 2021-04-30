@@ -69,7 +69,7 @@ def add_emp(request):
                         gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)
             emp.save()
             
-            user = User.objects.create_user(username=empid,password='root#123@')
+            user = User.objects.create_user(username=empid,password='root#123@',email=email)
             user.save()
             messages.info(request,'Employee added successfully :) ')
             return redirect('/add_emp')
