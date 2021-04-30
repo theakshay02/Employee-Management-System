@@ -9,6 +9,7 @@ from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 
+
 def index(request):
     return render(request,'log.html')
 
@@ -120,3 +121,5 @@ def destroy(request, empid):
     employee.delete()  
     return redirect("/dashboard")  
    
+
+
