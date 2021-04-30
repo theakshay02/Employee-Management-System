@@ -9,9 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{%static 'styles/log.css' %}">
-    <link rel="stylesheet" href="{%static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css " rel="stylesheet " integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl " crossorigin="anonymous ">
+<style type="text/css">
+    #rstbtn {
+        color: black;
+    }
 
+    #rstbtn:hover {
+        color: rgb(56, 117, 187);
+    }
+
+    #rstbtn::after {
+        color: black;
+    }
+</style>
 </head>
 
 <body style="margin-top:100px">
@@ -55,17 +66,23 @@
                     </button> {% endcomment %}
                     
                     <div class="d-flex flex-column my-4">
-                    <button class='button'><a class="m-auto" id="rstbtn" href="{% url 'password_reset' %}">Reset password</a></button>
+                    <button class='button'><a class="m-auto" id='rstbtn' href="{% url 'password_reset' %}">Reset password</a></button>
+
                     </div>
 
+
                 </form>
-                
 
             </div>
         </div>
        
 
 
+    </div>
+    <div class="main">
+        {% block content %}
+
+        {% endblock content %}
     </div>
 
 
