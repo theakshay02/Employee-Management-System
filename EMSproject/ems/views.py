@@ -132,10 +132,7 @@ def destroy(request, empid):
     employee.delete()  
     return redirect("/dashboard")  
 
-def passchange(request):
-    if request.method == 'POST':
-        return render(request,'password_reset/password_change_done.html')
-    else:
-        return render(request,'password_reset/password_change.html')
+def apply_leave(request):
+    return render(request,'leave/ApplyForLeave.html')
     
    
