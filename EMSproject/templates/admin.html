@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="sidebar">
@@ -24,7 +25,7 @@
 
         <div class="sidebar-menu">
             <ul>
-                
+                <li><a href="/dashboard"><span class="ti-home"></span><span> Home</span></a></li>
                 <li><a href="/add_emp"><span class="ti-pencil-alt"></span><span> Add employee</span></a></li>
                 <li><a href=""><span class="ti-write"></span><span> Leaves</span></a></li>
                 <li><a href="/password_change"><span class="ti-write"></span><span> Change Password</span></a></li>
@@ -36,7 +37,7 @@
         <header>
             <div>
                 <span class=""></span>
-                <h3>Welcome,{{details.0.name}} to Employee Management System</h3>
+                <h3>Welcome {{details.0.name}}!</h3>
             </div>
         </header>
         <main>
@@ -81,12 +82,24 @@
                                 <h5>Leave Left: </h5>
                                 <h5>{{details.0.leaves}}</h5>
                                 </li>
+
+                                <li>
+                                <h5>Gender: </h5>
+                                <h5>{{details.0.gender}}</h5>
+                                </li>
+
+                                <li>
+                                <h5>Address: </h5>
+                                <h5>{{details.0.address}}</h5>
+                                </li>
+
+
                             </ul>
                         </div>
                     </div>
                 </div>
             </div> <br> <br>
-            <div class=" row tbl">
+            <div class="row tbl">
                 <h1 style=" color:rgb(255, 250, 250);background-color:#027581;opacity:0.7;"><span style="margin-left:10px;"class="ti-user"> Employee Details</h1>
                     <table>
                     <tr>
@@ -95,6 +108,7 @@
                         <th>Name</th>
                         <th>Role</th>
                         <th>Phone</th>
+                        <th>Gender</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Salary</th>
@@ -103,11 +117,12 @@
                     {% for row in table %}
                         <tr>
                         
-                            <td class ="colimg1"><img src={{row.img.url}}></td>
+                            <td id ="colimg1"><img src={{row.img.url}} width="50" height="50"></td>
                             <td>{{row.empid}}</td>
                             <td>{{row.name}}</td>
                             <td>{{row.role}}</td>
                             <td>{{row.phone}}</td>
+                            <td>{{row.gender}}</td>
                             <td>{{row.email}}</td>
                             <td>{{row.address}}</td>
                             <td>{{row.salary}}</td>
