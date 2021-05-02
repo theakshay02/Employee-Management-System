@@ -1,8 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Employee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -11,20 +12,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
             <h3 class="brand">
                 <span class="ti-unlink"></span>
                 <span>Welcome  </span>
-                
+
             </h3>
-            
+
         </div>
 
         <div class="sidebar-menu">
             <ul>
-                
+
                 <li><a href="/dashboard"><span class="ti-home"></span><span> Home</span></a></li>
                 <li><a href=""><span class="ti-pencil-alt"></span><span> Update Info</span></a></li>
                 <li><a href="/logout"><span class="fas fa-sign-out-alt"></span><span></span> Log Out</a></li>
@@ -35,16 +37,16 @@
         <header>
             <div>
                 <span class=""></span>
-                <h1 class="dash-title">  Employee</h1>
+                <h1 class="dash-title"> Employee</h1>
             </div>
         </header>
         <main>
-            <div >
-                        {% for message in messages %}
-                            <h2 style="color:green; text-align:center;"> {{message}} </h2>
-                        {% endfor %}
+            <div>
+                {% for message in messages %}
+                <h2 style="color:rgb(0, 128, 0); text-align:center;"> {{message}} </h2>
+                {% endfor %}
             </div>
-            
+
             <div class="dash-cards">
                 <div class="card-single">
                     <div class="card-body">
@@ -55,61 +57,59 @@
                             <h4>Request Leave </h4><br>
                             <ul>
                                 <li>
-                                <h5>Leave Type:  </h5>
-                                <h5> <select name="options" id="options" >
+                                    <h5>Leave Type: </h5>
+                                    <h5> <select name="options" id="options">
                                     <option value="" disabled selected>Choose Leave Type</option>
                                     <option value="Personal">Personal</option>
                                     <option value="Annual">Annual</option>
                                     <option value="Military">Maternity</option>
                                     
                                     </select>
-                                </h5>
+                                    </h5>
                                 </li>
 
                                 <li>
-                                <h5><label> <i class="fa fa-calendar-check-o"></i> Begin Date </label></h5>
-                            
+                                    <h5><label> <i class="fa fa-calendar-check-o"></i> Begin Date </label></h5>
+
                                     <input class="w3-input w3-border" style="margin-left: 55px;" type="date" placeholder="YYYY MM DD" name="BeginDate" id="startDate">
                                 </li>
 
                                 <li>
                                     <h5><label> <i class="fa fa-calendar-check-o"></i> End Date </label></h5>
-                                        <input class="w3-input w3-border" style="margin-left: 55px;" type="date" placeholder="YYYY MM DD" name="Enddate" id="End">
-                                    </li>
-
-                                <li>
-                                <h5>Available Days: </h5>
-                                <h5><input type="text" id="adays" name="adays" value="{{emp.leaves}}"></h5>
+                                    <input class="w3-input w3-border" style="margin-left: 55px;" type="date" placeholder="YYYY MM DD" name="Enddate" id="End">
                                 </li>
 
-                                
-
                                 <li>
-                                <h5>Requesting days: </h5>
-                                <h5><input type="text" id="rdays" name="rdays" ></h5>
+                                    <h5>Available Days: </h5>
+                                    <h5><input type="text" id="adays" name="adays" value="{{emp.leaves}}"></h5>
                                 </li>
 
-                                
+
 
                                 <li>
-                                <h5>Reason:</h5>
-                                <h5><textarea rows="4" cols="50" id="reason" name="reason"></textarea></h5>
+                                    <h5>Requesting days: </h5>
+                                    <h5><input type="text" id="rdays" name="rdays"></h5>
                                 </li>
 
-                                
 
-                                
+
+                                <li>
+                                    <h5>Reason:</h5>
+                                    <h5><textarea rows="4" cols="50" id="reason" name="reason"></textarea></h5>
+                                </li>
+
+
+
+
 
                                 <button id="submitb">Apply</button>
-                                
+
                             </ul>
                         </form>
                     </div>
                 </div>
             </div>
-            
-        </main>
-        
-    </div>
 
-                
+        </main>
+
+    </div>
