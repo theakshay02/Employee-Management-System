@@ -56,11 +56,11 @@
                             <ul>
                                 <li>
                                 <h5>Leave Type:  </h5>
-                                <h5> <select name="gender" id="gender" >
+                                <h5> <select name="options" id="options" >
                                     <option value="" disabled selected>Choose Leave Type</option>
                                     <option value="Personal">Personal</option>
                                     <option value="Annual">Annual</option>
-                                    <option value="Military">Military</option>
+                                    <option value="Military">Maternity</option>
                                     
                                     </select>
                                 </h5>
@@ -79,21 +79,21 @@
 
                                 <li>
                                 <h5>Available Days: </h5>
-                                <h5><input type="text" id="role" name="role" ></h5>
+                                <h5><input type="text" id="adays" name="adays" value="{{emp.leaves}}"></h5>
                                 </li>
 
                                 
 
                                 <li>
                                 <h5>Requesting days: </h5>
-                                <h5><input type="text" id="phno" name="phno" ></h5>
+                                <h5><input type="text" id="rdays" name="rdays" ></h5>
                                 </li>
 
                                 
 
                                 <li>
                                 <h5>Reason:</h5>
-                                <h5><textarea rows="4" cols="50" id="address" name="address"></textarea></h5>
+                                <h5><textarea rows="4" cols="50" id="reason" name="reason"></textarea></h5>
                                 </li>
 
                                 

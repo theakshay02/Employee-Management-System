@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from .models import Employee
+from .models import Employee,EmpMgrDept,Applyforleave
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -23,7 +23,8 @@ def login(request):
             table=Employee.objects.all()
             
             if  details[0].isadmin == False:
-                return render(request,'dashboard.html',{'details':details})
+                authr=['Manager','HR','Senior Manager']
+                return render(request,'dashboard.html',{'details':details,'group':authr})
             else:
                 return render(request,'admin.html',{'details':details,'table':table})
 
@@ -37,7 +38,8 @@ def login(request):
             table=Employee.objects.all()
             
             if  details[0].isadmin == False:
-                return render(request,'dashboard.html',{'details':details})
+                authr=['Manager','HR','Senior Manager']
+                return render(request,'dashboard.html',{'details':details,'group':authr})
             else:
                 return render(request,'admin.html',{'details':details,'table':table})
         else:   
@@ -68,7 +70,7 @@ def add_emp(request):
                         gender=gender,address=address,img=img,salary=salary,leaves=leaves,isadmin=isadmin)
             emp.save()
             
-            user = User.objects.create_user(username=empid,password='root#123@')
+            user = User.objects.create_user(username=empid,password='root#123@',email=email)
             user.save()
             messages.info(request,'Employee added successfully :) ')
             return redirect('/add_emp')
@@ -132,7 +134,29 @@ def destroy(request, empid):
     employee.delete()  
     return redirect("/dashboard")  
 
-def apply_leave(request):
-    return render(request,'leave/ApplyForLeave.html')
+def apply_leave(request,empid):
+    if request.method == 'POST':
+        leave=request.POST['options']
+        bdate=request.POST['BeginDate']
+        edate=request.POST['Enddate']
+        avail=request.POST['adays']
+        req=request.POST['rdays']
+        reason=request.POST['reason']
+
+        leave_req=Applyforleave(emp_id=empid,leave_type=leave,begin_date=bdate,
+        end_date=edate,avial_days=avail,req_days=req,reason=reason)
+
+        leave_req.save()
+        
+        return render(request,'leave/ApplyForLeave.html')
+    else:
+        emp = Employee.objects.get(empid=empid)
+        return render(request,'leave/ApplyForLeave.html',{'emp':emp})
+
+
+def approveleave(request):
+    return render(request,'leave/ApproveLeave.html')
+
+
     
    

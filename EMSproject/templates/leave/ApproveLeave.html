@@ -1,95 +1,100 @@
+{% load static %}
 <!DOCTYPE html>
-{% extends 'LMS/base.html' %}
-{% block content %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Approve Leave</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-
-        $('#ApproveLeave').addClass('w3-bar-item w3-button w3-padding-large w3-white');
-
-        $('#Home').removeClass('w3-bar-item w3-button w3-padding-large w3-white');
-        $('#Home').addClass('w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
-
-        $('#Profile').addClass('w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
-        $('#ApplyForLeave').addClass('w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
-        $('#Logout').addClass('w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white');
-    </script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{%static 'styles/approve.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="w3-row-padding w3-light-grey w3-padding-64" id="approveleave">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span class="ti-unlink"></span>
+                <span>Welcome  </span>
+                
+            </h3>
+            
+        </div>
 
-    <div class="w3-content">
-        <div class="w3-container" style="padding:96px 16px">
-            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                <h1>Approve Leave</h1>
-                <table class="w3-table-all" action="ApproveLeave"  method="post">
-                    <thead>
-                    <tr class="w3-blue">
-                        <th style="display:none;">EmpLeave_Req_ID</th>
-                        <th>Name</th>
-                        <th>Reason</th>
-                        <th>Leave Type</th>
-                        <th>Begin Date</th>
-                        <th>End Date</th>
-                        <th>Requested Days</th>
-                        <th>Approve</th>
-                        <th>Decline</th>
-                    {% for leaves2 in leavesArray2 %}
-                            <tr>
-                                <form class="w3-container w3-margin-top w3-card-4" action="ApproveLeave"  method="post">
-                                <td>{{leaves2.Emp_FullName}}</td>
-                                <td>{{leaves2.Emp_Comments}}</td>
-                                <td>{{leaves2.Leave_Type}}</td>
-                                <td>{{leaves2.Begin_Date}}</td>
-                                <td>{{leaves2.End_Date}}</td>
-                                <td>{{leaves2.Requested_Days}}</td>
-                                <!--<td><input class="w3-check w3-margin-left" type="radio"></td>
-                                <td><input class="w3-check w3-margin-left" type="radio"></td>
-                                -->
-                                <td><input type="submit" formaction="ApproveLeave?approveList={{leaves2.EmpLeave_Req_ID}}" value="Approve"/></td>
-                                <td><input type="submit" formaction="ApproveLeave?declineList={{leaves2.EmpLeave_Req_ID}}" value="Decline"/></td>
-                                </form>
-                            </tr>
-                                </thead>
-                                {% endfor %}
-                </table>
-            </div>
+        <div class="sidebar-menu">
+            <ul>
+                
+                <li><a href="/dashboard"><span class="ti-home"></span><span> Home</span></a></li>
+                <li><a href=""><span class="ti-pencil-alt"></span><span> Update Info</span></a></li>
+                <li><a href="/logout"><span class="fas fa-sign-out-alt"></span><span></span> Log Out</a></li>
+            </ul>
         </div>
     </div>
-</div>
+    <div class="main-content">
+        <header>
+            <div>
+                <span class=""></span>
+                <h1 class="dash-title"> </h1>
+            </div>
+        </header>
+        <main>
+            <div >
+                        {% for message in messages %}
+                            <h2 style="color:green; text-align:center;"> {{message}} </h2>
+                        {% endfor %}
+            </div>
+            
+            <div class="">
+                <div class="card-single">
+                    
+                    
 
-<SCRIPT>
-function KeepCount() {
+                        
+                        
 
-var NewCount = 0
+                <div class="tbl">
+                        <h1 style=" color:rgb(255, 250, 250);background-color:#027581;opacity:0.7;"><span style="margin-left:10px;"class="ti-user">Pending Leave Requests</h1>
+                    <table>
+                    <tr>
+                        <th>Emp_Name</th>
+                        <th>Leave_Type</th>
+                        <th>Begin_Date</th>
+                        <th>End_Date</th>
+                        <th>Avail_Leaves</th>
+                        <th>Reason</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                    {% for row in table %}
+                        <tr>
+                        
+                            
+                            <td>{{row.empid}}</td>
+                            <td>{{row.name}}</td>
+                            <td>{{row.role}}</td>
+                            <td>{{row.phone}}</td>
+                            <td>{{row.gender}}</td>
+                            <td>{{row.email}}</td>
+                            
+                            <td>
+                                <a href="/update/">Approve</a>  
+                                <a href="/delete/">Decline</a>  
+                            </td>
+                                    
+                        </tr>
+                    
+                    {% endfor %}
+                    </table>
+                
+            
+                            
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+        
+    </div>
 
-if (document.joe.1.checked)
-{NewCount = NewCount + 1}
-
-if (document.joe.2.checked)
-{NewCount = NewCount + 1}
-
-if (NewCount == 2)
-{
-toastr.info('Please select one option')
-document.joe; return false;
-}
-}
-</SCRIPT>
-</body>
-</html>
-{% endblock %}
+                
