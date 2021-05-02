@@ -23,7 +23,6 @@
     background: var(--main-color);
     color: white;
     padding: 1rem;
-
 }
 
 .sidebar-header {
@@ -43,7 +42,7 @@
 }
 
 .sidebar a {
-    color: #fff;
+    color: white;
     font-size: 1rem;
 }
 
@@ -56,7 +55,7 @@
 }
 
 .main-content {
-    position:relative;
+    position: relative;
     margin-left: 240px;
 }
 
@@ -66,12 +65,12 @@ header {
     top: 0;
     z-index: 100;
     width: calc(100% - 240px);
-    background: #fff;
+    background: white;
     height: 60px;
     padding: 0rem 1rem;
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     border-bottom: 1px solid #ccc;
 }
 
@@ -96,22 +95,17 @@ main {
     border: 5px solid;
     border-radius: 2%;
     border-color: var(--main-color);
-    
 }
 
 .card-single {
-    background: #fff;
+    background: white;
     border-radius: 7px;
-    
 }
 
 .card-body {
     padding: 1rem;
     display: flex;
-    
 }
-
-
 
 .card-body span {
     font-size: 1.5rem;
@@ -128,7 +122,7 @@ main {
     color: var(--text-grey);
     font-size: 1rem;
     margin-top: .4rem;
-    display:  -moz-inline-box;
+    display: -moz-inline-box;
     padding: 0.1cm;
 }
 
@@ -138,34 +132,34 @@ main {
     margin-left: 3rem;
 }
 
-#submitb{
-    margin-top:0.5cm;
+#submitb {
+    margin-top: 0.5cm;
     margin-left: 13rem;
     padding: 5px;
     font-size: 1.1rem;
-    color:white;
+    color: white;
     z-index: 100;
     border: 1.8px solid;
     border-color: black;
     background-color: #027581;
 }
 
-#submitb:hover{
+#submitb:hover {
     transform: scale(1.05);
 }
 
-#resetb{
-    margin-top:0.5cm;
+#resetb {
+    margin-top: 0.5cm;
     margin-left: 0.5rem;
     z-index: 100;
     padding: 6px;
     font-size: 1.1rem;
-    color:white;
+    color: white;
     border: 1.8px solid;
     border-color: black;
     background-color: #027581;
 }
 
-#resetb:hover{
+#resetb:hover {
     transform: scale(1.05);
 }
