@@ -42,7 +42,7 @@
 }
 
 .sidebar a {
-    color: #fff;
+    color: white;
     font-size: 1rem;
 }
 
@@ -117,9 +117,8 @@ img {
 }
 
 .tbl {
-    width:auto;
+    width: auto;
     overflow: auto;
-    
 }
 
 table {
@@ -161,4 +160,3 @@ td {
     font-size: 1.5rem;
     margin-left: 3rem;
 }
-
