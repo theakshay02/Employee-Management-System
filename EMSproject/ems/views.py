@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from .models import Employee,EmpMgrDept,Applyforleave
+from .models import Employee,EmpMgrDept,Applyforleave,Approveleave
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -99,10 +99,7 @@ def update(request, empid):
         salary=request.POST['salary']
         leaves=request.POST['leaves']
 
-        emp = Employee.objects.get(empid=empid)           
-        Employee.objects.filter(empid=empid).update(empid=empid,name=name,role=role,phone=phno,email=email,
-                            gender=gender,address=address,salary=salary,leaves=leaves,isadmin=isadmin)   
-        employee.refresh_from_db()
+    
         messages.info(request,'Employee Updated Successfully ')
         return render(request, 'edit.html', {'employee': employee})
         
@@ -144,9 +141,14 @@ def apply_leave(request,empid):
         reason=request.POST['reason']
 
         leave_req=Applyforleave(emp_id=empid,leave_type=leave,begin_date=bdate,
-        end_date=edate,avial_days=avail,req_days=req,reason=reason)
+        end_date=edate,avial_days=avail,req_days=req,reason=reason,status='Pending')
 
         leave_req.save()
+        empl=EmpMgrDept.objects.get(Emp_No=empid)
+        app_leave=Approveleave(emp_id=empid,emp_name=empl.Emp_Name,leave_type=leave,begin_date=bdate,end_date=edate,avial_days=avail,
+        req_days=req,reason=reason,status='Pending',Mgr_id=empl.Manager_Emp_ID.empid
+        )
+        app_leave.save()
         
         return render(request,'leave/ApplyForLeave.html')
     else:
@@ -154,9 +156,25 @@ def apply_leave(request,empid):
         return render(request,'leave/ApplyForLeave.html',{'emp':emp})
 
 
-def approveleave(request):
-    return render(request,'leave/ApproveLeave.html')
+def approveleave(request,empid):
+    requests=Approveleave.objects.all().filter(Mgr_id=empid)
+    return render(request,'leave/ApproveLeave.html',{'requests':requests})
 
+def leavehistory(request,empid):
+    requests=Applyforleave.objects.all().filter(emp_id=empid)
+    return render(request,'leave/LeaveHistory.html',{'requests':requests})
 
+def approve(request,empid):
+    Applyforleave.objects.filter(emp_id=empid).update(status='Approved')
+    Approveleave.objects.filter(emp_id=empid).update(status='Approved')
+    ems.refresh_from_db()
     
+
+
+def decline(request,empid):
+    Applyforleave.objects.filter(emp_id=empid).update(status='Declined')
+    Approveleave.objects.filter(emp_id=empid).update(status='Declined')
+    ems.refresh_from_db()
+
+
    

@@ -36,6 +36,7 @@ class Applyforleave(models.Model):
 
 class Approveleave(models.Model):
     emp_id=models.CharField(max_length=20)
+    emp_name=models.CharField(max_length=30)
     leave_type=models.CharField(max_length=30)
     begin_date=models.DateField()
     end_date=models.DateField()
@@ -43,4 +44,4 @@ class Approveleave(models.Model):
     req_days=models.IntegerField(default=0,null=True)
     reason=models.TextField()
     status=models.CharField(max_length=30)
-    Mgr_id=models.ForeignKey(EmpMgrDept, on_delete=models.CASCADE,related_name='Mgr_id',default=0)
+    Mgr_id=models.CharField(max_length=30)
