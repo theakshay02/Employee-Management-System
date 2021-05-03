@@ -29,7 +29,7 @@ urlpatterns = [
      name='password_reset_complete'),
    
     path('applyleave/<empid>',views.apply_leave),
-    path('approveleave/<empid>',views.approveleave),
+    path('approveleave/<mgrid>/',views.approveleave),
     path('leavehistory/<empid>',views.leavehistory),
     path('approve/<empid>',views.approve),
     path('decline/<empid>',views.decline),

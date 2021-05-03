@@ -78,16 +78,16 @@
                             <td>{{ele.reason}}</td>
                             
                             
-                            {% if ele.status=='Pending' %}
+                            {% if ele.status == "Pending" %}
                                 <td>
                                     <a href="/approve/{{ele.emp_id}}">Approve</a>  
                                     <a href="/decline/{{ele.emp_id}}">Decline</a>  
                                 </td>
-                                
                             {% endif %}
-                            {% if ele.status != 'Pending' %}
+                            
+                            {% if ele.status != "Pending" %}
                                 <td>
-                                    {{ele.reason}}  
+                                    {{ele.status}}  
                                 </td>
                                 
                             {% endif %}

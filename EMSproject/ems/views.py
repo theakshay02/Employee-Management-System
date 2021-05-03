@@ -156,8 +156,8 @@ def apply_leave(request,empid):
         return render(request,'leave/ApplyForLeave.html',{'emp':emp})
 
 
-def approveleave(request,empid):
-    requests=Approveleave.objects.all().filter(Mgr_id=empid)
+def approveleave(request,mgrid):
+    requests=Approveleave.objects.all().filter(Mgr_id=mgrid)
     return render(request,'leave/ApproveLeave.html',{'requests':requests})
 
 def leavehistory(request,empid):
@@ -167,14 +167,20 @@ def leavehistory(request,empid):
 def approve(request,empid):
     Applyforleave.objects.filter(emp_id=empid).update(status='Approved')
     Approveleave.objects.filter(emp_id=empid).update(status='Approved')
-    ems.refresh_from_db()
+    empl=EmpMgrDept.objects.get(Emp_No=empid)
+    requests=Approveleave.objects.all().filter(Mgr_id=empl.Manager_Emp_ID.empid)
+    return render(request,'leave/ApproveLeave.html',{'requests':requests})
     
+
 
 
 def decline(request,empid):
     Applyforleave.objects.filter(emp_id=empid).update(status='Declined')
     Approveleave.objects.filter(emp_id=empid).update(status='Declined')
-    ems.refresh_from_db()
+    empl=EmpMgrDept.objects.get(Emp_No=empid)
+    requests=Approveleave.objects.all().filter(Mgr_id=empl.Manager_Emp_ID.empid)
+    return render(request,'leave/ApproveLeave.html',{'requests':requests})
+    
 
 
    
