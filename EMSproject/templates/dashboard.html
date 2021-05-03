@@ -29,8 +29,9 @@
                 <li><a href="/update2/{{details.0.empid}}"><span class="ti-pencil-alt"></span><span> Update Info</span></a></li>
                 <li><a href="/applyleave/{{details.0.empid}}"><span class="ti-write"></span><span> Apply for Leave</span></a></li>
                 {% if details.0.role in group %}
-                    <li><a href="/approveleave"><span class="ti-write"></span><span>Approve Leave</span></a></li>
+                    <li><a href="/approveleave/{{details.0.empid}}"><span class="ti-write"></span><span>Approve Leave</span></a></li>
                 {% endif %}
+                <li><a href="/leavehistory/{{details.0.empid}}"><span class="ti-write"></span><span>Leave History</span></a></li>
                 <li><a href="/password_change"><span class="ti-write"></span><span> Change Password</span></a></li>
                 <li><a href="/logout"><span class="fas fa-sign-out-alt"></span><span></span> Log Out</a></li>
             </ul>
